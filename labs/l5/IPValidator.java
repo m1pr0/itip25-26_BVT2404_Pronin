@@ -1,0 +1,18 @@
+import java.util.regex.*;
+
+//задание4
+
+public class IPValidator {
+    public static void main(String[] args) {
+        String[] ips = {"192.168.1.1", "256.0.0.1", "127.0.0.1", "1.2.3", "10.20.30.40"};
+
+        for (String ip : ips) {
+            System.out.println(ip + " - " + (isValidIP(ip) ? "валиден" : "невалиден"));
+        }
+    }
+
+    public static boolean isValidIP(String ip) {
+        String regex = "^((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)$";
+        return ip.matches(regex);
+    }
+}
